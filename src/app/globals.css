@@ -1,0 +1,198 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Parikrama Treks & Expeditions — brand palette as literal theme tokens. */
+@theme {
+  --color-basalt: #242522;
+  --color-dark-basalt: #2e2f2b;
+  --color-ivory: #f1e9dc;
+  --color-cream: #f7f4ed;
+  --color-copper: #b87545;
+  --color-copper-light: #c98a5a;
+  --color-stone: #8d887d;
+  --color-forest: #39473d;
+  --color-forest-light: #4a5b4e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  --charcoal: #242522;
+  --basalt: #242522;
+  --ivory: #f1e9dc;
+  --cream: #f7f4ed;
+  --copper: #b87545;
+  --stone: #8d887d;
+  --forest: #39473d;
+
+  --background: #f7f4ed;
+  --foreground: #242522;
+  --card: #ffffff;
+  --card-foreground: #242522;
+  --popover: #ffffff;
+  --popover-foreground: #242522;
+  --primary: #242522;
+  --primary-foreground: #f7f4ed;
+  --secondary: #f1e9dc;
+  --secondary-foreground: #242522;
+  --muted: #efe9db;
+  --muted-foreground: #8d887d;
+  --accent: #b87545;
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #e2dccd;
+  --input: #e2dccd;
+  --ring: #b87545;
+  --chart-1: #b87545;
+  --chart-2: #39473d;
+  --chart-3: #8d887d;
+  --chart-4: #f1e9dc;
+  --chart-5: #2e2f2b;
+  --sidebar: #f7f4ed;
+  --sidebar-foreground: #242522;
+  --sidebar-primary: #242522;
+  --sidebar-primary-foreground: #f7f4ed;
+  --sidebar-accent: #f1e9dc;
+  --sidebar-accent-foreground: #242522;
+  --sidebar-border: #e2dccd;
+  --sidebar-ring: #b87545;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv01";
+  }
+  ::selection {
+    background: var(--copper);
+    color: #fff;
+  }
+}
+
+/* ---------- Editorial typography ---------- */
+.font-serif {
+  font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
+}
+.font-sans {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+.display-hero {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: 0.005em;
+}
+
+.eyebrow {
+  font-family: var(--font-inter), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* ---------- Brand helpers ---------- */
+.text-copper { color: var(--copper); }
+.bg-copper { background-color: var(--copper); }
+.bg-basalt { background-color: var(--basalt); }
+.bg-forest { background-color: var(--forest); }
+.text-ivory { color: var(--ivory); }
+.bg-cream { background-color: var(--cream); }
+.bg-ivory { background-color: var(--ivory); }
+.border-copper { border-color: var(--copper); }
+.text-stone-parikrama { color: var(--stone); }
+
+/* Image overlays */
+.overlay-dark {
+  background: linear-gradient(
+    to top,
+    rgba(36, 37, 34, 0.94) 0%,
+    rgba(36, 37, 34, 0.58) 40%,
+    rgba(36, 37, 34, 0.12) 72%,
+    rgba(36, 37, 34, 0) 100%
+  );
+}
+.overlay-hero {
+  background: linear-gradient(
+    to right,
+    rgba(20, 20, 18, 0.78) 0%,
+    rgba(20, 20, 18, 0.45) 40%,
+    rgba(20, 20, 18, 0.18) 64%,
+    rgba(20, 20, 18, 0.55) 100%
+  );
+}
+
+/* Custom scrollbar */
+.scroll-area-ivory::-webkit-scrollbar { width: 6px; height: 6px; }
+.scroll-area-ivory::-webkit-scrollbar-thumb {
+  background: rgba(184, 117, 69, 0.4);
+  border-radius: 9999px;
+}
+.scroll-area-ivory::-webkit-scrollbar-track { background: transparent; }
+
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-rise { animation: fade-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+
+@keyframes wa-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+.wa-pulse { animation: wa-pulse 2.6s infinite; }
